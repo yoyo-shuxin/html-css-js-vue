@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        .xxx-enter-active,.xxx-leave-active{
+            transition:opacity 1s
+        }
+        .xxx-enter,.xxx-leave-to{
+            opacity: 0;
+        }
+
+
+
+        .move-enter-active{
+            transition:all 1s
+        }
+
+
+        .move-leave-active{
+            transition: all 3s
+        }
+        .move-enter,.move-leave-to{
+        opacity: 0;
+            transform:translateX(20px);
+        }
+
+
+    </style>
+</head>
+<body>
+<div id="demo">
+    <button @click="show=!show">Toggle1</button>
+    <transition name="xxx">
+        <p v-show="show">hello</p>
+    </transition>
+</div>
+
+<div id="demo2">
+    <button @click="show=!show">Toggle2</button>
+    <transition name="move">
+        <p v-show="show">hello</p>
+    </transition>
+
+</div>
+
+
+<script type="text/javascript" src="../js/vue.js"></script>
+<script type="text/javascript">
+    const vm1=new Vue({
+        el:"#demo",
+        data:{
+            show:true
+        }
+
+
+    }
+    )
+
+    const vm2=new Vue({
+        el:'#demo2',
+        data:{
+            show:true
+        }
+    })
+
+</script>
+</body>
+</html>
